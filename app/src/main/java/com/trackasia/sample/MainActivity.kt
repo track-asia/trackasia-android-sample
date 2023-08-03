@@ -12,6 +12,7 @@ import com.trackasia.android.maps.Style
 import com.trackasia.android.camera.CameraPosition
 import com.trackasia.android.geometry.LatLng
 
+
 private const val SERVICE_NAME = "geo"
 
 class MainActivity : AppCompatActivity() {
@@ -32,13 +33,13 @@ class MainActivity : AppCompatActivity() {
         mapView?.getMapAsync { map ->
             map.setStyle(
                 Style.Builder()
-                    .fromUri("https://demotiles.track-asia.com/style.json")
+                    .fromUri("https://tiles.track-asia.com/tiles/v3/style-streets.json?key=public")
             ) { style ->
                 findViewById<TextView>(R.id.attributionView).text = style.sources.first()?.attribution
             }
             map.cameraPosition = CameraPosition.Builder()
-                .target(LatLng(0.0, -75.0))
-                .zoom(1.0)
+                .target(LatLng(10.762622, 106.660172))
+                .zoom(6.0)
                 .build()
         }
     }
